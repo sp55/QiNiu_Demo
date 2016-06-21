@@ -1,0 +1,83 @@
+//
+//  QNPch.pch
+//  QiNiu_Demo
+//
+//  Created by admin on 16/6/10.
+//  Copyright © 2016年 AlezJi. All rights reserved.
+//
+
+#ifndef QNPch_pch
+#define QNPch_pch
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreen_Frame (CGRectMake(0, 0 ,kScreen_Width,kScreen_Height))
+#define kScreen_CenterX kScreen_Width/2
+#define kScreen_CenterY kScreen_Height/2
+#define kScale ([UIScreen mainScreen].bounds.size.width == 320? 0.8:([UIScreen mainScreen].bounds.size.width == 414) ? 1.104:1)
+
+
+// 头文件
+#import "MacrosHeader.h"
+#import "ModelsMarco.h"
+#import "CategoryMacro.h"
+#import "UrlMarco.h"
+#import "ThirdLibraryMarco.h"
+#import "NetRequestManager.h"
+
+#import "AppDelegate.h"
+
+
+// 打印日志
+#ifdef DEBUG
+#    define DLog(...) NSLog(__VA_ARGS__)
+#else
+#    define DLog(...)
+#endif
+
+//工具
+#import "CustomHelper.h"
+#import "AlertViewHelper.h"
+#import "StringHelper.h"
+
+
+
+
+#define QNNetRequestManager [NetRequestManager shareManager]
+
+
+
+//七牛AccessKey/SecretKey
+#define QN_AccessKey @"f_hJz40ibGp7w7Y2Obv69Y3qj9L85ZA2dui23gPl"
+#define QN_SecretKey @"XY-pai1_rcTcx6T-fwowLvip3stECaIyss-mcwI6"
+
+
+//根据七牛的AccessKey/SecretKey 按照一定规则生成的Token  有时间限制  所以隔一段时间就需要重新生成一个测试的
+#define  QN_Test_Token @"f_hJz40ibGp7w7Y2Obv69Y3qj9L85ZA2dui23gPl:nvdzf14UvDnrYg4CrzukNKucTaM=:eyJzY29wZSI6InFuZGVtbyIsImRlYWRsaW5lIjoxNDY2NTU1Mzk0fQ=="
+//#define QN_Test_Token @"f_hJz40ibGp7w7Y2Obv69Y3qj9L85ZA2dui23gPl:5VQWIC35aD34B2zyqWsd0Wt3CnE=:eyJzY29wZSI6InFuZGVtbyIsImRlYWRsaW5lIjoxNDY1NjY5NTI0fQ=="
+//生成token的地址
+//这个在线生成的token 设置密码key的时候先不要设置成固定的   在客户端处理
+//http://jsfiddle.net/gh/get/extjs/4.2/icattlecoder/jsfiddle/tree/master/uptoken
+
+
+
+
+
+
+//官方文档
+//http://developer.qiniu.com/code/v7/sdk/objc.html
+
+//0 -下面的host
+//1 -上面的host
+#if 0
+#  define ISURL  @"http:"
+#else
+#  define ISURL  @"http:"
+#endif
+
+
+#endif /* QNPch_pch */
